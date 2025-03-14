@@ -18,30 +18,6 @@ export function cn(...classes: Array<string | undefined>) {
 }
 
 // -------------------------------------------------------------------
-// Komponen GSAPTextReveal (Opsional, untuk animasi teks)
-function GSAPTextReveal({
-  children,
-  stagger = 0.05,
-}: {
-  children: React.ReactNode;
-  stagger?: number;
-}) {
-  const el = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (el.current) {
-      gsap.fromTo(
-        el.current.children,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, stagger, duration: 0.5 },
-      );
-    }
-  }, [stagger]);
-
-  return <div ref={el}>{children}</div>;
-}
-
-// -------------------------------------------------------------------
 // Komponen Marquee (digunakan untuk klien & layanan)
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
   className?: string;
@@ -107,7 +83,7 @@ function CyclingVector() {
     >
       <path
         fill="#ff4e00"
-        d="M58.34,0h-7.78v34.44L37.66,2.51l-7.21,2.91,13.24,32.76L18.7,13.2l-5.5,5.5,23.95,23.95L6.11,29.08l-3.11,7.13,32.83,14.35H0v7.78h35.83L3,72.68l3.11,7.13,31.03-13.56-23.95,23.95,5.5,5.5,24.98-24.98-13.24,32.76,7.21,2.91,12.9-31.93v34.44h7.78v-34.44l12.9,31.93,7.21-2.91-13.23-32.76,24.98,24.98,5.5-5.5-23.95-23.95,31.03,13.56,3.11-7.13-32.83-14.35h35.83v-7.78h-35.83l32.83-14.35-3.11-7.13-31.03,13.56,23.95-23.95-5.5-5.5-24.98,24.98,13.23-32.76-7.21-2.91-12.9,31.93V0Z"
+        d="M58.34,0h-7.78v34.44L37.66,2.51l-7.21,2.91,13.24,32.76L18.7,13.2l-5.5,5.5,23.95,23.95L6.11,29.08l-3.11,7.13-32.83,14.35H0v7.78h35.83L3,72.68l3.11,7.13,31.03-13.56-23.95,23.95,5.5,5.5,24.98-24.98-13.24,32.76,7.21,2.91,12.9-31.93v34.44h7.78v-34.44l12.9,31.93,7.21-2.91-13.23-32.76,24.98,24.98,5.5-5.5-23.95-23.95,31.03,13.56,3.11-7.13-32.83-14.35h35.83v-7.78h-35.83l32.83-14.35-3.11-7.13-31.03,13.56,23.95-23.95-5.5-5.5-24.98,24.98,13.23-32.76-7.21-2.91-12.9,31.93V0Z"
       />
     </svg>,
     // Vector #2
@@ -317,7 +293,6 @@ export default function LandingSection() {
   }, []);
 
   // Button Biasa dengan efek hover (bisa diedit)
-  // Contoh: background hover, border, dsb.
   function CustomCTAButton({
     onClick,
     children,
@@ -397,7 +372,7 @@ export default function LandingSection() {
         </Marquee>
       </motion.div>
 
-      {/* CTA Button (Button Biasa) */}
+      {/* CTA Button */}
       <div className="my-8">
         <CustomCTAButton
           onClick={() =>

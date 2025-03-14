@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-
 import { useRef, useEffect } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
 
@@ -24,7 +23,8 @@ export function StaggerChildren({
 }: StaggerChildrenProps) {
   const controls = useAnimation()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once, threshold })
+  // Gunakan properti 'amount' menggantikan 'threshold'
+  const isInView = useInView(ref, { once, amount: threshold })
 
   useEffect(() => {
     if (isInView) {
@@ -55,11 +55,16 @@ export function StaggerChildren({
   }
 
   return (
-    <motion.div ref={ref} initial="hidden" animate={controls} variants={containerVariants} className={className}>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+      className={className}
+    >
       {React.Children.map(children, (child) => (
         <motion.div variants={itemVariants}>{child}</motion.div>
       ))}
     </motion.div>
   )
 }
-

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import gsap from "gsap";
 import { GSAPReveal } from "@/components/animations/gsap-reveal";
 import { GSAPTextReveal } from "@/components/animations/gsap-text-reveal";

@@ -27,7 +27,8 @@ export function TextAnimation({
 }: TextAnimationProps) {
   const controls = useAnimation()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once, threshold })
+  // Gantikan 'threshold' dengan 'amount'
+  const isInView = useInView(ref, { once, amount: threshold })
 
   useEffect(() => {
     if (isInView) {
@@ -92,9 +93,14 @@ export function TextAnimation({
   }
 
   return (
-    <motion.div ref={ref} initial="hidden" animate={controls} variants={containerVariants} className={className}>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+      className={className}
+    >
       {renderContent()}
     </motion.div>
   )
 }
-

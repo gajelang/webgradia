@@ -1,22 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-
-// Custom hook untuk mendeteksi lebar layar
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    setMatches(media.matches);
-    const listener = () => setMatches(media.matches);
-    media.addListener(listener);
-    return () => media.removeListener(listener);
-  }, [query]);
-
-  return matches;
-}
 
 // Fungsi bantu untuk menambahkan border (desktop)
 function getBorderClasses(
@@ -193,7 +178,7 @@ function ServicesSectionDesktop() {
                 )}
               </div>
               <div className="p-4">
-                {isActive && (
+                {isActive ? (
                   <a
                     href="https://wa.me/628895018725"
                     target="_blank"
@@ -202,8 +187,7 @@ function ServicesSectionDesktop() {
                   >
                     Contact Us
                   </a>
-                )}
-                {!isActive && (
+                ) : (
                   <div className="text-sm text-neutral-400 text-center">
                     click to expand
                   </div>

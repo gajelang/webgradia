@@ -77,7 +77,7 @@ export function TestimonialsSection() {
             viewport={{ once: true }}
             className="text-gray-400 max-w-2xl mx-auto"
           >
-            Don't just take our word for it. Here's what our clients say...
+            Don&apos;t just take our word for it. Here&apos;s what our clients say...
           </motion.p>
         </div>
 
