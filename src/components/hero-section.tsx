@@ -156,9 +156,9 @@ export function HeroSection() {
             staggerDelay={0.05}
             className="text-3xl md:text-7xl font-bold mb-10 tracking-tight"
           >
-            Your All-in-One Partner for
-            <br />
+            <p>Your All-in-One Partner for
             Marketing, Events & Branding.
+              </p>
           </TextAnimation>
 
           <FadeIn delay={0.5} direction="up">
